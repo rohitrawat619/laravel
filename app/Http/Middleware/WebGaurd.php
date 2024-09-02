@@ -15,11 +15,14 @@ class WebGaurd
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->age < 18) {
+        if ($request->has('age')) { 
+        if ($request->age > 18) {
             echo "allow";
-        } else {
+        }
+        else {
             echo "denie";
         }
+    }
         return $next($request);
     }
 }
