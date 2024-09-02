@@ -20,6 +20,8 @@ class StudentController extends Controller
 
         // dd($students);
 
+        //return response()->json($students);
+
         return view('students.index', compact('students'));
     }
 
