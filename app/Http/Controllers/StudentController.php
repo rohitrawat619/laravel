@@ -22,7 +22,9 @@ class StudentController extends Controller
 
         //return response()->json($students);
 
-        return view('students.index', compact('students'));
+        return response()->json(Student::all());
+
+        //return view('students.index', compact('students'));
     }
 
     public function create()
