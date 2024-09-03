@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:y+ndrDb/Pju0eEArdi7JoF0bSYLNMSQ6KjbdnS8HBeU=',
+    'key' => 'base64:G/lkEi+gPFhneJt6aJs1lpF28yH0bb2+baefZ2wQX+Y=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -258,6 +258,7 @@
     array (
       0 => 'api/*',
       1 => 'sanctum/csrf-cookie',
+      2 => '*',
     ),
     'allowed_methods' => 
     array (
@@ -301,7 +302,7 @@
         'port' => '3306',
         'database' => 'laravel',
         'username' => 'root',
-        'password' => 'Cafe#676#',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -321,7 +322,7 @@
         'port' => '3306',
         'database' => 'laravel',
         'username' => 'root',
-        'password' => 'Cafe#676#',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -336,7 +337,7 @@
         'port' => '3306',
         'database' => 'laravel',
         'username' => 'root',
-        'password' => 'Cafe#676#',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -426,7 +427,7 @@
   ),
   'jwt' => 
   array (
-    'secret' => 'LL3C0l46cJS6wjFpd59PtT5GFI5f0FadHzlZ9qoAvPgfNCnKQTRNLKDQeGIYFsaj',
+    'secret' => NULL,
     'keys' => 
     array (
       'public' => NULL,

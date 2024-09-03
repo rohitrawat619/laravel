@@ -4,7 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StudentController;
 
+
 Route::resource('students', StudentController::class)->middleware('check.age');
+
+Route::put('students/{id}', [StudentController::class, 'update'])->name('students.update');
 
 Route::get('/get', [StudentController::class, 'index']);
 
