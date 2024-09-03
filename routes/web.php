@@ -4,17 +4,23 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StudentController;
 
+
 Route::resource('students', StudentController::class)->middleware('check.age');
 
-Route::put('students/{id}', [StudentController::class, 'update']);
+//define view on route of index function in StudentController
 
 Route::get('/get', [StudentController::class, 'index']);
+
+//define view on route
 
 Route::get('/', function () {
      return view('welcome');
 });
 
-Route::view('/url', 'welcome')->middleware('check.age');
+Route::view('/url', 'welcome')->middleware('check.age'); //Redirect to another route with old url
+
+
+//custom id with url example of query string 
 
 Route::get('/custom/{id?}', function (string $id = null) {
      if ($id) {
@@ -23,6 +29,9 @@ Route::get('/custom/{id?}', function (string $id = null) {
           return "<h2>Not Found 404</h2>";
      }
 });
+
+
+//middleware apply on various route is callled group middleware
 
 Route::middleware(['check.age'])->group(function () {
 

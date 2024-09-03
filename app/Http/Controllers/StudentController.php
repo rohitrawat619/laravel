@@ -22,9 +22,9 @@ class StudentController extends Controller
 
         //return response()->json($students);
 
-        return response()->json(Student::all());
+        //return response()->json(Student::all());
 
-        //return view('students.index', compact('students'));
+        return view('students.index', compact('students'));
     }
 
     public function create()
@@ -63,9 +63,7 @@ class StudentController extends Controller
     {
         $request->validate([
             'student_name' => 'required|string|max:255',
-            'class_teacher_id' => 'required|exists:teachers,id',
             'class' => 'required|string|max:10',
-            'admission_date' => 'required|date',
             'yearly_fees' => 'required|numeric'
         ]);
 
