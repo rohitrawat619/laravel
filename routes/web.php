@@ -8,20 +8,16 @@ use App\Http\Controllers\StudentController;
 Route::resource('students', StudentController::class)->middleware('check.age');
 
 //define view on route of index function in StudentController
-
 Route::get('/get', [StudentController::class, 'index']);
 
 //define view on route
-
 Route::get('/', function () {
      return view('welcome');
 });
 
 Route::view('/url', 'welcome')->middleware('check.age'); //Redirect to another route with old url
 
-
 //custom id with url example of query string 
-
 Route::get('/custom/{id?}', function (string $id = null) {
      if ($id) {
           return "<h2>This is " . $id . "</h2>";
@@ -32,7 +28,6 @@ Route::get('/custom/{id?}', function (string $id = null) {
 
 
 //middleware apply on various route is callled group middleware
-
 Route::middleware(['check.age'])->group(function () {
 
      Route::get('/customurl', function () {
