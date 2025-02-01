@@ -7,17 +7,11 @@ use App\Http\Controllers\StudentController;
 
 Route::resource('students', StudentController::class)->middleware('check.age');
 
-//define view on route of index function in StudentController
-Route::get('/get', [StudentController::class, 'index']);
-
-//define view on route
-Route::get('/', function () {
-     return view('welcome');
-});
+Route::get('/', [StudentController::class, 'index']); //define view on route of index function in StudentController
 
 Route::view('/url', 'welcome')->middleware('check.age'); //Redirect to another route with old url
 
-//custom id with url example of query string 
+//example of query string passing dynamic value in url query string
 Route::get('/custom/{id?}', function (string $id = null) {
      if ($id) {
           return "<h2>This is " . $id . "</h2>";
@@ -25,7 +19,6 @@ Route::get('/custom/{id?}', function (string $id = null) {
           return "<h2>Not Found 404</h2>";
      }
 });
-
 
 //middleware apply on various route is callled group middleware
 Route::middleware(['check.age'])->group(function () {

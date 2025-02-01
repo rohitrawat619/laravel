@@ -4,7 +4,7 @@
 <h1 class="text-center">Edit Student</h1>
 
 <br>
-<form action="{{ route('students.update', $student->id) }}" method="POST">
+<form action="{{ route('students.update', $student->id) }}" method="PUT">
     @csrf
     @method('PUT')
     <table class="table">

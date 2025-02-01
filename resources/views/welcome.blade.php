@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <body>
-     <h1>Welcome</h1>
-     <a href="{{ route('randomly') }}"> click </a>
+     <h1">Welcome Route</h1>
 </body>
 
 </html>
