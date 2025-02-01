@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+
 <h1 class="text-center">Add New Student</h1>
 
 <br>
 
 <form id='sub'>
-    @csrf
     @method('POST')
     <table class="table">
         <thead>
@@ -45,8 +45,8 @@
     <a href="{{ route('students.index') }}" class="btn btn-dark">Back to List</a>
 </h6>
 
+<script type="module">
 
-<script type="text/javascript">
     $(document).ready(function() {
         $('#sub').on('submit', function(e) {
             e.preventDefault();
@@ -78,4 +78,7 @@
             });
         });
     });
+
 </script>
+
+@endsection

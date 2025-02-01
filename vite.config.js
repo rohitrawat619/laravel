@@ -4,13 +4,16 @@ import laravel from "laravel-vite-plugin";
 export default defineConfig({
     plugins: [
         laravel({
-            input: ["resources/css/app.css", "resources/js/app.js"],
+            input: ["resources/js/app.js", "resources/css/app.css"],
             refresh: true,
         }),
     ],
-    build: {
-        rollupOptions: {
-            external: ["datatables.net-dt"], // Exclude DataTables from build process
+    resolve: {
+        alias: {
+            $: "jQuery",
         },
+    },
+    optimizeDeps: {
+        include: ["datatables.net", "datatables.net-dt"],
     },
 });

@@ -4,9 +4,9 @@
 <h1 class="text-center">Edit Student</h1>
 
 <br>
-<form action="{{ route('students.update', $student->id) }}" method="PUT">
+<form action="{{ route('students.update', $student->id) }}" method="POST">
     @csrf
-    @method('PUT')
+    @method('PATCH') <!-- This specifies the PATCH method -->
     <table class="table">
         <thead>
             <tr>

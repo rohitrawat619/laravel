@@ -13,14 +13,10 @@ class StudentController extends Controller
         $students = Student::with('teacher');
 
         $query = $request->input('search');
-
+        
         $students = Student::when($query, function ($queryBuilder, $search) {
-            return $queryBuilder->where('student_name', '=', $search);
+            return $queryBuilder->where('student_name', 'LIKE', '%' . $search . '%');
         })->paginate(4);
-
-        // dd($students);
-        //return response()->json($students);
-        //return response()->json(Student::all());
 
         return view('students.index', compact('students'));
     }
@@ -59,6 +55,7 @@ class StudentController extends Controller
 
     public function update(Request $request, Student $student)
     {
+
         $request->validate([
             'student_name' => 'required|string|max:255',
             'class' => 'required|string|max:10',
