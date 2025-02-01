@@ -19,9 +19,7 @@ class StudentController extends Controller
         })->paginate(4);
 
         // dd($students);
-
         //return response()->json($students);
-
         //return response()->json(Student::all());
 
         return view('students.index', compact('students'));

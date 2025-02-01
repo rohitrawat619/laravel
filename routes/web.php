@@ -34,6 +34,6 @@ Route::middleware(['check.age'])->group(function () {
      Route::redirect('/url', '/cust', 301);
 
      Route::fallback(function () {
-          return "<h1> Page Not Found";
+          return "<h1> Page Not Found 404 </h1>";
      });
 });
