@@ -25,4 +25,4 @@ Route::get('show', [RecordController::class, 'index']);
 Route::post('create', [RecordController::class, 'store']);
 Route::put('/update/{record}', [RecordController::class, 'put']);
 Route::patch('/update/{record}', [RecordController::class, 'patch']);
-Route::post('delete/{id}', [RecordController::class, 'destroy']);
+Route::delete('delete/{id}', [RecordController::class, 'destroy']);
