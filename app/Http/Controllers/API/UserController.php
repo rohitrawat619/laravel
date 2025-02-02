@@ -69,4 +69,17 @@ class UserController extends Controller
             return response()->json(['error' => 'Invalid credentials'], 401);
         }
     }
+
+    public function logout(Request $request)
+{
+    // Revoke the current user's token
+    auth()->user()->tokens->each(function ($token) {
+        $token->delete();
+    });
+
+    // Alternatively, you can log out the user with the auth()->logout() method
+    // auth()->logout();
+
+    return response()->json(['message' => 'Logged out successfully']);
+}
 }
