@@ -31,23 +31,43 @@ class RecordController extends Controller
     }
 
     // Update an existing Record
-    public function update(Request $request, Record $Record)
+    public function put(Request $request, Record $record)
     {
-        $request->validate([
-            'title' => 'sometimes|required|string|max:255',
-            'content' => 'sometimes|required',
-        ]);
+    // Validate the incoming request data
+    $request->validate([
+        'title' => 'sometimes|required|string|max:255',
+        'content' => 'sometimes|required',
+    ]);
 
-        $Record->update($request->all());
+    // Update the record with the validated data
+    $record->update($request->all()); // Full update
+    return response()->json($record);
+}
 
-        return $Record;
-    }
+// Update an existing Record
+public function patch(Request $request, Record $record)
+    {
+    // Validate the incoming request data
+    $request->validate([
+        'title' => 'sometimes|required|string|max:255',
+        'content' => 'sometimes|required',
+    ]);
+
+    // Update the record with the validated data
+    $record->update($request->only(['title'])); // Partial update
+    return response()->json($record);
+}
 
     // Delete a Record
-    public function destroy(Record $Record)
+    public function destroy($id)
     {
-        $Record->delete();
-
-        return response()->noContent();
+        $record = Record::find($id);
+    
+        if ($record) {
+            $record->delete();  // Soft delete (this will set deleted_at timestamp)
+            return response()->json(['message' => 'Record soft deleted successfully.']);
+        }
+    
+        return response()->json(['message' => 'Record not found.'], 404);
     }
 }
