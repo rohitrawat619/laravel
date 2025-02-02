@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -71,15 +73,18 @@ class UserController extends Controller
     }
 
     public function logout(Request $request)
-{
-    // Revoke the current user's token
-    auth()->user()->tokens->each(function ($token) {
-        $token->delete();
-    });
+    {
+        $user = Auth::user();
 
-    // Alternatively, you can log out the user with the auth()->logout() method
-    // auth()->logout();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
-    return response()->json(['message' => 'Logged out successfully']);
-}
+        // Revoke all tokens for the user
+        $user->tokens()->delete();
+
+        return response()->json(['message' => 'Logged out successfully'], 200);
+    }
+
+    
 }
