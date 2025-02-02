@@ -18,8 +18,9 @@ Route::get('/custom/{id?}', function (string $id = null) {
      }
 });
 
-
 Route::view('/show', 'welcome'); // redirect view
+
+Route::redirect('/fuck', '/students/create');
 
 //middleware apply on various route is callled group middleware
 Route::middleware(['check.age'])->group(function () {
@@ -31,7 +32,6 @@ Route::middleware(['check.age'])->group(function () {
      Route::get('/about', function () {
           return view('about');
      });
-
 });
 
 Route::fallback(function () {
