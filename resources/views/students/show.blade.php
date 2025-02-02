@@ -5,7 +5,7 @@
 <div class="container text-center mt-2">
     <h1>Student Details</h1>
 
-    <table class="table">
+    <table class="table text-center">
         <thead>
             <tr>
                 <th>Name</th>

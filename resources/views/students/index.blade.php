@@ -6,7 +6,7 @@
 <a href="{{ route('students.create') }}" class="btn btn-info mt-2 mb-2">Add New Student</a>
 </div>
  
-<table class="table">
+<table class="table text-center" >
      <thead>
           <tr>
                <th>Name</th>

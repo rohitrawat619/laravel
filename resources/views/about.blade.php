@@ -2,7 +2,7 @@
 <html>
 
 <body>
-     <h1>About</h1>
+     <h1>About View</h1>
 </body>
 
 </html>
